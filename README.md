@@ -17,7 +17,7 @@ devtools::install_github("jlaffy/brewerland")
 ```
 
 
-## Example
+## Examples
 
 Some basic examples which show you how to solve some common problems:
 
@@ -43,6 +43,7 @@ scales::show_col(toy_categorical_data, labels = FALSE) # default palette for qua
 data(discrete_colours) # loads a character vector with 297 brewer colours
 scales::show_col(discrete_colours, labels = F)
 ```
+
 
 
 
