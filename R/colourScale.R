@@ -68,10 +68,10 @@ colourScale = function(data,
         if (length(levs) <= length(pal)) {
             # this will make sure the first three colours are used
             # rather than equidistant colours, in which final colour is often grey
-            pal = pal[1:length(unique(as.character(data)))]
+            pal = pal[1:length(levs)]
         } else {
             # if there are too many colours, load default rds object with all brewer colours
-            pal = brewerland::discrete_colours
+            pal = brewerland::discrete_colours[1:length(levs)]
         }
 
         scalefun = scales::col_factor(domain = data, palette = pal, levels = levels, ordered = ordered)

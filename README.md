@@ -24,25 +24,32 @@ Some basic examples which show you how to solve some common problems:
 ``` r
 library(brewerland)
 
-scales::show_col(colourPal(pal = NULL, type = 'seq'))
-scales::show_col(colourPal(pal = NULL, type = 'div'))
-scales::show_col(colourPal(pal = 'YlOrBr')
-scales::show_col(colourPal(pal = 'YlOrBr', len = 5, reverse = T))
+data(discrete_colours) # loads a character vector with 297 brewer colours
+scales::show_col(discrete_colours, labels = F)
+
+
+scales::show_col(colourPal(pal = NULL, type = 'seq')) # default palette for continuous data is 'YlOrBr'
+scales::show_col(colourPal(pal = NULL, type = 'div')) # default palette for divergent data is 'RdBu' (reversed)
+scales::show_col(colourPal(pal = NULL, type = 'qual')) # default palette for qualitative/categorical data is 'Dark2'
+
+
+scales::show_col(colourPal(pal = 'Spectral')
+scales::show_col(colourPal(pal = 'Spectral', len = 5, reverse = T))
 
 
 toy_numeric_data = rnorm(1:100)
-scales::show_col(colourScale(data = toy_numeric_data), labels = FALSE) # default palette for continuous data is Yellow > Orange > Brown
-scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu'), labels = F) # different colour palette (Red > Purple)
+scales::show_col(colourScale(data = toy_numeric_data), labels = FALSE)
+scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu'), labels = F) # different colour palette
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', bin = T, bins = 3), labels = F) # data binned into 4 groups
 
 
-toy_categorical_data = rep(letters[1:10], 10)
+toy_categorical_data = rep(letters[1:5], 10)
 scales::show_col(colourScale(data = toy_categorical_data), labels = FALSE) # default palette for qualitative data is 'Dark2'
-scales::show_col(colourScale(data = toy_categorical_data, levels = letters[10:1]), labels = FALSE) # default palette for qualitative data is 'Dark2'
-
-data(discrete_colours) # loads a character vector with 297 brewer colours
-scales::show_col(discrete_colours, labels = F)
+scales::show_col(colourScale(data = toy_categorical_data, levels = letters[1:5], pal = discrete_colours), labels = FALSE)
 ```
+
+
+
 
 
 
