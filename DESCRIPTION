@@ -1,0 +1,21 @@
+Package: brewerland
+Title: Generate (RColorbrewerland) Colours For Data Vectors Of Any Type and Length
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Julie",
+           family = "Lafft",
+           role = c("aut", "cre"),
+           email = "julie.laffy@weizmann.ac.il",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Generate (RColorbrewerland) Colours For Data Vectors Of Any Type and Length. The maximum number of colours for a discrete palette is 297.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Imports: 
+    scales,
+    RColorBrewer,
+    grDevices,
+    tibble,
+    stats,
+    dplyr
