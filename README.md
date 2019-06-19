@@ -37,12 +37,13 @@ scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', bin = T, bin
 
 
 toy_categorical_data = rep(letters[1:10], 10)
-scales::show_col(toy_categorical_data, labels = FALSE) # default palette for qualitative data is 'Dark2'
-
+scales::show_col(colourScale(data = toy_categorical_data), labels = FALSE) # default palette for qualitative data is 'Dark2'
+scales::show_col(colourScale(data = toy_categorical_data, levels = letters[10:1]), labels = FALSE) # default palette for qualitative data is 'Dark2'
 
 data(discrete_colours) # loads a character vector with 297 brewer colours
 scales::show_col(discrete_colours, labels = F)
 ```
+
 
 
 
