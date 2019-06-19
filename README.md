@@ -24,7 +24,7 @@ Some basic examples which show you how to solve some common problems:
 ``` r
 library(brewerland)
 
-data(discrete_colours) # loads a character vector with 297 brewer colours
+brewerland::discrete_colours # a character vector with 297 brewer colours
 scales::show_col(discrete_colours, labels = F)
 
 
@@ -45,7 +45,8 @@ scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', bin = T, bin
 
 toy_categorical_data = rep(letters[1:5], 10)
 scales::show_col(colourScale(data = toy_categorical_data), labels = FALSE) # default palette for qualitative data is 'Dark2'
-scales::show_col(colourScale(data = toy_categorical_data, levels = letters[1:5], pal = discrete_colours), labels = FALSE)
+scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1])
+scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1], pal = discrete_colours))
 ```
 
 
