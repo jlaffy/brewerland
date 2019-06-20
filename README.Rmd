@@ -43,7 +43,7 @@ devtools::install_github("jlaffy/brewerland")
 
 Some basic examples which show you how to solve some common problems:
 
-```{r discrete colours, echo = FALSE, dpi=300, fig.width=4, fig.height=4}
+```{r discrete colours, echo = FALSE}
 library(brewerland)
 
 brewerland::discrete_colours # a character vector with 297 brewer colours

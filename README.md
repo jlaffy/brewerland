@@ -38,7 +38,8 @@ devtools::install_github("jlaffy/brewerland")
 
 ## Examples
 
-Some basic examples which show you how to solve some common problems:
+Some basic examples which show you how to solve some common
+    problems:
 
     #>   [1] "#CAB2D6" "#8DD3C7" "#80B1D3" "#FFFFB3" "#BC80BD" "#33A02C" "#CCEBC5"
     #>   [8] "#FF7F00" "#1F78B4" "#D9D9D9" "#6A3D9A" "#FFED6F" "#B3DE69" "#B2DF8A"

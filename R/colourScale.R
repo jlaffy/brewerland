@@ -8,11 +8,10 @@
 #' @param div a boolean value indicating whether a divergent palette is required. Applicable only to numeric data. Default: F
 #' @param bin a boolean value indicating whether the data should first be binned (equally-spaced groups) such that all data points within a range of values will share the same colour. Applicable only to numeric data. Default: F
 #' @param quantile a boolean value indicating whether the data should first be quantised (equally-sized groups) such that all data points within a group will share the same colour. Applicable only to numeric data.  Default: F
+#' @param n a numeric value indicating how many groups data points should be coloured according to. If bin = T, groups will be equally-spaced. If instead quantile = T, groups will be equally-sized. If n = 4, all points will be coloured accordingly by one of 4 colours. Default: 4
 #' @param reverse.pal a boolean value indicating whether the palette colours should be reversed (prior of course to generating the full data-matched colour vector). Default: F
 #' @param shuffle.pal a boolean value indicating whether the palette colours should be shuffled (also prior to generating the colour vector). Note that the shuffling of palette colours will be different with each function call. Default: F
 #' @param pal.len The number of colours desired in the palette. If the number provided is NULl or is larger than the number of colours available, defaults to the maximum number of colours available. Default: NULL
-#' @param nbins a numeric value indicating how many equally-spaced values your data should be binned according to. The minimum number of bins is 2, which would bin your data into 3 groups and thus 3 colours. Default: 7
-#' @param nquant a numeric value indicating how many equally-sized groups your data will be split into. A value of 4 would generate 4 groups and thus 4 colours. Default: 4
 #' @param levels a character vector that provides an alternate way of specifying levels. Applicable only to character or factor data. If specified, the levels provided here will override those in the data argument. Default: NULL
 #' @param ordered applicable only if the data needs to be coerced to a factor. If so 'TRUE' will treat the character vector as already in the correct order. Default: F
 #' @param squish a numeric range (i.e. numeric vector with two values) indicating the range that the data should be squished between. In other words, c(-3, 3) would mean that the most extreme colours in the palette are the same for all values -3 and under, and all values 3 and over, respectively. Default: NULL
@@ -28,11 +27,10 @@ colourScale = function(data,
                        div = F,
                        bin = F,
                        quantile = F,
+                       n = 4,
                        reverse.pal = F,
                        shuffle.pal = F,
                        pal.len = NULL,
-                       nbins = 7,
-                       nquant = 4,
                        levels = NULL,
                        ordered = F,
                        squish = NULL,
