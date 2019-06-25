@@ -8,8 +8,9 @@ areColours <- function(x) {
     
     if (is.null(x)) return(F)
 
-    all(sapply(x, is.character)) &
-        sapply(x, function(X) tryCatch(is.matrix(grDevices::col2rgb(X)), error = function(e) FALSE))
+    if (!all(sapply(x, is.character))) return(F)
+    
+    all(sapply(x, function(X) tryCatch(is.matrix(grDevices::col2rgb(X)), error = function(e) FALSE)))
 }
 
 
