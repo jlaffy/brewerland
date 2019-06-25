@@ -1,8 +1,3 @@
----
-output:
-    rmarkdown::github_document
----
-
 
 # brewerland
 
@@ -33,13 +28,7 @@ Note: brewerland's two most useful functions are colourPal() and colourScale(). 
 
 ## Installation
 
-You can install the released version of brewerland from [GitHub](https://CRAN.R-project.org) with:
-
-``` r
-devtools::install_github("jlaffy/brewerland")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the released version of brewerland from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
