@@ -55,7 +55,6 @@ scales::show_col(colourPal(name = NULL, type = 'div'), labels = FALSE)
 scales::show_col(colourPal(name = NULL, type = 'qual'), labels = FALSE) 
 
 ### Choose a palette by RColorBrewer palette names ###
-par(mfrow = c(1, 3))
 scales::show_col(colourPal(name = 'Spectral'), labels = FALSE)
 scales::show_col(colourPal(name = 'Spectral', reverse = T), labels = FALSE)
 scales::show_col(colourPal(name = 'Spectral', reverse = T, shuffle = T), labels = FALSE)
@@ -68,16 +67,19 @@ toy_numeric_data = sort(rnorm(1:100))
 scales::show_col(colourScale(data = toy_numeric_data), labels = FALSE)
 # different RColorBrewer Palette
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu'), labels = F)
-par(mfrow = c(1, 2))
+
 # data split into 4 equally-spaced groups
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', bin = T, n = 4), labels = F) # data binned into 4 groups
 # data split into 4 equally-sized groups
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', quantile = T, n = 4), labels = F) # data binned into 4 groups
+
 # neutral colour for NA values. If you want a neutral colour for a subset of points, set these equal to 'NA'.
 toy_numeric_data[toy_numeric_data >= -0.5 & toy_numeric_data <= 0.5] <- NA
 scales::show_col(colourScale(data = toy_numeric_data, na.colour = "#808080"), labels = F)
+
 # semi transparent colours
 scales::show_col(colourScale(data = toy_numeric_data, alpha = 0.5), labels = F)
+
 
 ### An Example with qualitative data ###
 toy_categorical_data = sort(rep(letters[1:5], 10))
@@ -89,6 +91,7 @@ scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1],
 # return colour key for qualitative colours
 colourScale(data = toy_categorical_data, levels = letters[5:1], pal = discrete_colours, return.legend = T)$legend
 ```
+
 
 
 
