@@ -73,6 +73,9 @@ par(mfrow = c(1, 2))
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', bin = T, n = 4), labels = F) # data binned into 4 groups
 # data split into 4 equally-sized groups
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', quantile = T, n = 4), labels = F) # data binned into 4 groups
+# neutral colour for NA values. If you want a neutral colour for a subset of points, set these equal to 'NA'.
+toy_numeric_data[toy_numeric_data >= -0.5 & toy_numeric_data <= 0.5] <- NA
+scales::show_col(colourScale(data = toy_numeric_data, ), labels = F
 
 ### An Example with qualitative data ###
 toy_categorical_data = sort(rep(letters[1:5], 10))
@@ -81,7 +84,12 @@ scales::show_col(colourScale(data = toy_categorical_data), labels = FALSE)
 scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1]), labels = FALSE)
 # provide a different colour palette
 scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1], pal = discrete_colours))
+# return colour key for qualitative colours
+colourScale(data = toy_categorical_data, levels = letters[5:1], pal = discrete_colours, return.legend = T)$legend
 ```
+
+
+
 
 
 
