@@ -47,11 +47,11 @@ scales::show_col(discrete_colours, labels = F)
 
 ### Choose a palette by type ###
 # default palette for continuous data is 'YlOrBr'
-scales::show_col(colourPal(name = NULL, type = 'seq', len = 9), labels = FALSE)
+scales::show_col(colourPal(name = NULL, type = 'seq'), labels = FALSE)
 # default palette for divergent data is 'RdBu' (reversed)
-scales::show_col(colourPal(name = NULL, type = 'div', len = 9), labels = FALSE) 
+scales::show_col(colourPal(name = NULL, type = 'div'), labels = FALSE) 
 # default palette for qualitative/categorical data is 'Dark2'
-scales::show_col(colourPal(name = NULL, type = 'qual', len = 9), labels = FALSE) 
+scales::show_col(colourPal(name = NULL, type = 'qual'), labels = FALSE) 
 
 ### Choose a palette by RColorBrewer palette names ###
 scales::show_col(colourPal(name = 'Spectral'), labels = FALSE)
@@ -79,4 +79,5 @@ scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1])
 # provide a different colour palette
 scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1], pal = discrete_colours))
 ```
+
 
