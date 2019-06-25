@@ -5,9 +5,8 @@
 \title{Generate Colour Vectors of Any Length for Any Data Type}
 \usage{
 colourScale(data, pal = NULL, div = F, bin = F, quantile = F,
-  reverse.pal = F, shuffle.pal = F, pal.len = NULL, nbins = 7,
-  nquant = 4, levels = NULL, ordered = F, squish = NULL,
-  return.legend = F)
+  n = 4, reverse.pal = F, shuffle.pal = F, pal.len = NULL,
+  levels = NULL, ordered = F, squish = NULL, return.legend = F)
 }
 \arguments{
 \item{data}{an atomic vector of type numeric, character or factor.}
@@ -20,15 +19,13 @@ colourScale(data, pal = NULL, div = F, bin = F, quantile = F,
 
 \item{quantile}{a boolean value indicating whether the data should first be quantised (equally-sized groups) such that all data points within a group will share the same colour. Applicable only to numeric data.  Default: F}
 
+\item{n}{a numeric value indicating how many groups data points should be coloured according to. If bin = T, groups will be equally-spaced. If instead quantile = T, groups will be equally-sized. If n = 4, all points will be coloured accordingly by one of 4 colours. Default: 4}
+
 \item{reverse.pal}{a boolean value indicating whether the palette colours should be reversed (prior of course to generating the full data-matched colour vector). Default: F}
 
 \item{shuffle.pal}{a boolean value indicating whether the palette colours should be shuffled (also prior to generating the colour vector). Note that the shuffling of palette colours will be different with each function call. Default: F}
 
 \item{pal.len}{The number of colours desired in the palette. If the number provided is NULl or is larger than the number of colours available, defaults to the maximum number of colours available. Default: NULL}
-
-\item{nbins}{a numeric value indicating how many equally-spaced values your data should be binned according to. The minimum number of bins is 2, which would bin your data into 3 groups and thus 3 colours. Default: 7}
-
-\item{nquant}{a numeric value indicating how many equally-sized groups your data will be split into. A value of 4 would generate 4 groups and thus 4 colours. Default: 4}
 
 \item{levels}{a character vector that provides an alternate way of specifying levels. Applicable only to character or factor data. If specified, the levels provided here will override those in the data argument. Default: NULL}
 
