@@ -39,12 +39,13 @@ devtools::install_github("jlaffy/brewerland")
 
 Some basic examples which show you how to solve some common problems:
 
-```{r discrete colours}
+``` r
 library(brewerland)
 
 # discrete_colours is a brewerland character vector with 297 brewer colours
 scales::show_col(discrete_colours, labels = F)
 
+### Choose a palette by type ###
 # default palette for continuous data is 'YlOrBr'
 scales::show_col(colourPal(name = NULL, type = 'seq', len = 9), labels = FALSE)
 # default palette for divergent data is 'RdBu' (reversed)
@@ -52,12 +53,13 @@ scales::show_col(colourPal(name = NULL, type = 'div', len = 9), labels = FALSE)
 # default palette for qualitative/categorical data is 'Dark2'
 scales::show_col(colourPal(name = NULL, type = 'qual', len = 9), labels = FALSE) 
 
-# choose an RColorBrewer Palette
+### Choose a palette by RColorBrewer palette names ###
 scales::show_col(colourPal(name = 'Spectral'), labels = FALSE)
 scales::show_col(colourPal(name = 'Spectral', len = 5, reverse = T), labels = FALSE)
 scales::show_col(colourPal(name = 'Spectral', len = 5, reverse = T, shuffle = T), labels = FALSE)
 
 
+### An Example with continuous (sequential) data ###
 set.seed(1492)
 toy_numeric_data = sort(rnorm(1:100))
 # default colours for sequential data
@@ -69,6 +71,7 @@ scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', bin = T, n =
 # data split into 4 equally-sized groups
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', quantile = T, n = 4), labels = F) # data binned into 4 groups
 
+### An Example with qualitative data ###
 toy_categorical_data = sort(rep(letters[1:5], 10))
 scales::show_col(colourScale(data = toy_categorical_data), labels = FALSE)
 # choose levels
@@ -76,3 +79,4 @@ scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1])
 # provide a different colour palette
 scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1], pal = discrete_colours))
 ```
+
