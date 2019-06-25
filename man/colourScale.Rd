@@ -5,14 +5,14 @@
 \title{Generate Colour Vectors of Any Length for Any Data Type}
 \usage{
 colourScale(data, pal = NULL, div = F, bin = F, quantile = F,
-  na.colour = "#808080", n = 4, reverse.pal = F, shuffle.pal = F,
-  pal.len = NULL, levels = NULL, ordered = F, squish = NULL,
-  return.legend = F)
+  na.colour = "#808080", alpha = NA, n = 4, reverse.pal = F,
+  shuffle.pal = F, pal.len = NULL, levels = NULL, ordered = F,
+  squish = NULL, return.legend = F)
 }
 \arguments{
 \item{data}{an atomic vector of type numeric, character or factor.}
 
-\item{pal}{if provided, either a character string of a valid RColorBrewer palette, or a character vector of valid colours. You can check that your palette name is valid in isBrewerPal(), or see all palette names with brewerPalNames() and you can check your vector of colours with areColours(). If not provided, the type of data will be determined internally and a default palette will be returned accordingly.Default: NULL}
+\item{pal}{if provided, either a character string of a valid RColorBrewer palette, or a character vector of valid colours. You can check that your palette name is valid in isBrewerPal(), or see all palette names with brewerPalNames() and you can check your vector of colours with areColours(). If not provided, the type of data will be determined internally and a default palette will be returned accordingly. Default: NULL}
 
 \item{div}{a boolean value indicating whether a divergent palette is required. Applicable only to numeric data. Default: F}
 
@@ -20,7 +20,9 @@ colourScale(data, pal = NULL, div = F, bin = F, quantile = F,
 
 \item{quantile}{a boolean value indicating whether the data should first be quantised (equally-sized groups) such that all data points within a group will share the same colour. Applicable only to numeric data.  Default: F}
 
-\item{na.colour}{The colour to return for ‘NA’ values. Note that ‘na.color = 'NA' is valid.}
+\item{na.colour}{The colour to return for ‘NA’ values. Note that ‘na.color = 'NA' is valid. Default: '#808080'}
+
+\item{alpha}{modify colour transparency. 'NA' or numeric value between 0 and 1. Default: NA}
 
 \item{n}{a numeric value indicating how many groups data points should be coloured according to. If bin = T, groups will be equally-spaced. If instead quantile = T, groups will be equally-sized. If n = 4, all points will be coloured accordingly by one of 4 colours. Default: 4}
 

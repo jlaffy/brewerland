@@ -4,13 +4,14 @@
 #' @description Returns a vector of colours of the same length as the data provided. The function will inherently deal with vectors of type numeric, character and factor. Colours can be specified in one of three ways. (1) You can provide the name of a valid RColorBrewer palette. To help with this, you can check that the palette exists with brewerland::isBrewerPal(name). You can also see all existing palettes with brewerland::brewerPalNames(). (2) You can provide a valid character vector of
 #' colours. To help with this, you can check that the colours are valid with brewerland::areColours(). Note that here the colours you choose are not limited to those that are in the RColorBrewer palettes. You should however be aware that in this case it is up to you to choose a vector of colours that matches your data type. (3) If you provide neither a palette name or a colour vector, the type of data will be determined internally and a default palette will be chosen accordingly. For all three colour specifications, you can also choose to return binned or quantised colour vectors if you would like numeric values within equally-spaced groups or equally-sized groups to share the same colour.
 #' @param data an atomic vector of type numeric, character or factor.
-#' @param pal if provided, either a character string of a valid RColorBrewer palette, or a character vector of valid colours. You can check that your palette name is valid in isBrewerPal(), or see all palette names with brewerPalNames() and you can check your vector of colours with areColours(). If not provided, the type of data will be determined internally and a default palette will be returned accordingly.Default: NULL
+#' @param pal if provided, either a character string of a valid RColorBrewer palette, or a character vector of valid colours. You can check that your palette name is valid in isBrewerPal(), or see all palette names with brewerPalNames() and you can check your vector of colours with areColours(). If not provided, the type of data will be determined internally and a default palette will be returned accordingly. Default: NULL
 #' @param div a boolean value indicating whether a divergent palette is required. Applicable only to numeric data. Default: F
 #' @param bin a boolean value indicating whether the data should first be binned (equally-spaced groups) such that all data points within a range of values will share the same colour. Applicable only to numeric data. Default: F
 #' @param quantile a boolean value indicating whether the data should first be quantised (equally-sized groups) such that all data points within a group will share the same colour. Applicable only to numeric data.  Default: F
 #' @param n a numeric value indicating how many groups data points should be coloured according to. If bin = T, groups will be equally-spaced. If instead quantile = T, groups will be equally-sized. If n = 4, all points will be coloured accordingly by one of 4 colours. Default: 4
 #' @param reverse.pal a boolean value indicating whether the palette colours should be reversed (prior of course to generating the full data-matched colour vector). Default: F
-#' @param na.colour The colour to return for ‘NA’ values. Note that ‘na.color = 'NA' is valid.
+#' @param na.colour The colour to return for ‘NA’ values. Note that ‘na.color = 'NA' is valid. Default: '#808080'
+#' @param alpha modify colour transparency. 'NA' or numeric value between 0 and 1. Default: NA
 #' @param shuffle.pal a boolean value indicating whether the palette colours should be shuffled (also prior to generating the colour vector). Note that the shuffling of palette colours will be different with each function call. Default: F
 #' @param pal.len The number of colours desired in the palette. If the number provided is NULl or is larger than the number of colours available, defaults to the maximum number of colours available. Default: NULL
 #' @param levels a character vector that provides an alternate way of specifying levels. Applicable only to character or factor data. If specified, the levels provided here will override those in the data argument. Default: NULL
@@ -29,6 +30,7 @@ colourScale = function(data,
                        bin = F,
                        quantile = F,
                        na.colour = "#808080",
+                       alpha = NA,
                        n = 4,
                        reverse.pal = F,
                        shuffle.pal = F,
