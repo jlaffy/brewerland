@@ -49,8 +49,10 @@ scales::show_col(discrete_colours, labels = F)
 ### Choose a palette by type ###
 # default palette for continuous data is 'YlOrBr'
 scales::show_col(colourPal(name = NULL, type = 'seq'), labels = FALSE)
+
 # default palette for divergent data is 'RdBu' (reversed)
 scales::show_col(colourPal(name = NULL, type = 'div'), labels = FALSE) 
+
 # default palette for qualitative/categorical data is 'Dark2'
 scales::show_col(colourPal(name = NULL, type = 'qual'), labels = FALSE) 
 
@@ -63,13 +65,16 @@ scales::show_col(colourPal(name = 'Spectral', reverse = T, shuffle = T), labels 
 ### An Example with continuous (sequential) data ###
 set.seed(1492)
 toy_numeric_data = sort(rnorm(1:100))
+
 # default colours for sequential data
 scales::show_col(colourScale(data = toy_numeric_data), labels = FALSE)
+
 # different RColorBrewer Palette
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu'), labels = F)
 
 # data split into 4 equally-spaced groups
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', bin = T, n = 4), labels = F) # data binned into 4 groups
+
 # data split into 4 equally-sized groups
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', quantile = T, n = 4), labels = F) # data binned into 4 groups
 
@@ -84,13 +89,17 @@ scales::show_col(colourScale(data = toy_numeric_data, alpha = 0.5), labels = F)
 ### An Example with qualitative data ###
 toy_categorical_data = sort(rep(letters[1:5], 10))
 scales::show_col(colourScale(data = toy_categorical_data), labels = FALSE)
+
 # choose levels
 scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1]), labels = FALSE)
+
 # provide a different colour palette
 scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1], pal = discrete_colours))
+
 # return colour key for qualitative colours
 colourScale(data = toy_categorical_data, levels = letters[5:1], pal = discrete_colours, return.legend = T)$legend
 ```
+
 
 
 
