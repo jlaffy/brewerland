@@ -37,6 +37,7 @@ devtools::install_github("jlaffy/brewerland")
 
 ## Examples
 
+
 Some basic examples which show you how to solve some common problems:
 
 ``` r
@@ -66,6 +67,7 @@ toy_numeric_data = sort(rnorm(1:100))
 scales::show_col(colourScale(data = toy_numeric_data), labels = FALSE)
 # different RColorBrewer Palette
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu'), labels = F)
+par(mfrow = c(1, 2))
 # data split into 4 equally-spaced groups
 scales::show_col(colourScale(data = toy_numeric_data, pal = 'RdPu', bin = T, n = 4), labels = F) # data binned into 4 groups
 # data split into 4 equally-sized groups
@@ -79,5 +81,8 @@ scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1])
 # provide a different colour palette
 scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1], pal = discrete_colours))
 ```
+
+
+
 
 
