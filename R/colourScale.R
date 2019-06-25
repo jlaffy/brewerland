@@ -61,7 +61,8 @@ colourScale = function(data,
                         type = type,
                         len = pal.len,
                         reverse = reverse.pal,
-                        shuffle = shuffle.pal)
+                        shuffle = shuffle.pal,
+                        alpha = alpha)
     }
 
     if (type == 'qual') {
