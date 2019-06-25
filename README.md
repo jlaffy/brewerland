@@ -55,9 +55,10 @@ scales::show_col(colourPal(name = NULL, type = 'div'), labels = FALSE)
 scales::show_col(colourPal(name = NULL, type = 'qual'), labels = FALSE) 
 
 ### Choose a palette by RColorBrewer palette names ###
+par(mfrow = c(1, 3))
 scales::show_col(colourPal(name = 'Spectral'), labels = FALSE)
-scales::show_col(colourPal(name = 'Spectral', len = 5, reverse = T), labels = FALSE)
-scales::show_col(colourPal(name = 'Spectral', len = 5, reverse = T, shuffle = T), labels = FALSE)
+scales::show_col(colourPal(name = 'Spectral', reverse = T), labels = FALSE)
+scales::show_col(colourPal(name = 'Spectral', reverse = T, shuffle = T), labels = FALSE)
 
 
 ### An Example with continuous (sequential) data ###
@@ -81,6 +82,12 @@ scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1])
 # provide a different colour palette
 scales::show_col(colourScale(data = toy_categorical_data, levels = letters[5:1], pal = discrete_colours))
 ```
+
+
+
+
+
+
 
 
 
