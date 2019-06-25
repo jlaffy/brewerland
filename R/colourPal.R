@@ -5,6 +5,7 @@
 #' @param type a character string indicating the type of palette desired. One of 'seq', 'sequential', 'div', 'diverging', 'qual', or 'qualitative'. Default: 'seq'
 #' @param reverse a boolean value indicating whether the palette should be returned in reverse order. Note that for diverging palettes, this will effectively restore the original palette order since the function by default reverses them (see also Description). Default: F
 #' @param shuffle a boolean value indicating whether the palette should be shuffled prior to return. Default: F
+#' @param alpha modify colour transparency. 'NA' or numeric value between 0 and 1. Default: NA
 #' @return a character vector of colours.
 #' @seealso 
 #'  \code{\link[RColorBrewer]{RColorBrewer}}
@@ -15,7 +16,8 @@ colourPal = function(name = NULL,
                      len = NULL,
                      type = 'seq',
                      reverse = F,
-                     shuffle = F) {
+                     shuffle = F,
+                     alpha = NA) {
 
     paletteTypes = c(seq = 'YlOrBr', div = 'RdBu', qual = 'Dark2')
     paletteTypes = c(paletteTypes, paletteTypes)
@@ -66,5 +68,5 @@ colourPal = function(name = NULL,
         pal = sample(pal, length(pal), replace = F)
     }
 
-    pal
+    scales::alpha(pal, alpha = alpha)
 }

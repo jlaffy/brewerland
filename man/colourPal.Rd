@@ -5,7 +5,7 @@
 \title{Flexible RColorBrewer Palettes}
 \usage{
 colourPal(name = NULL, len = NULL, type = "seq", reverse = F,
-  shuffle = F)
+  shuffle = F, alpha = NA)
 }
 \arguments{
 \item{name}{a character string. Default: NULL}
@@ -17,6 +17,8 @@ colourPal(name = NULL, len = NULL, type = "seq", reverse = F,
 \item{reverse}{a boolean value indicating whether the palette should be returned in reverse order. Note that for diverging palettes, this will effectively restore the original palette order since the function by default reverses them (see also Description). Default: F}
 
 \item{shuffle}{a boolean value indicating whether the palette should be shuffled prior to return. Default: F}
+
+\item{alpha}{modify colour transparency. 'NA' or numeric value between 0 and 1. Default: NA}
 }
 \value{
 a character vector of colours.
