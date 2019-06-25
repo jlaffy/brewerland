@@ -10,6 +10,7 @@
 #' @param quantile a boolean value indicating whether the data should first be quantised (equally-sized groups) such that all data points within a group will share the same colour. Applicable only to numeric data.  Default: F
 #' @param n a numeric value indicating how many groups data points should be coloured according to. If bin = T, groups will be equally-spaced. If instead quantile = T, groups will be equally-sized. If n = 4, all points will be coloured accordingly by one of 4 colours. Default: 4
 #' @param reverse.pal a boolean value indicating whether the palette colours should be reversed (prior of course to generating the full data-matched colour vector). Default: F
+#' @param na.colour The colour to return for ‘NA’ values. Note that ‘na.color = 'NA' is valid.
 #' @param shuffle.pal a boolean value indicating whether the palette colours should be shuffled (also prior to generating the colour vector). Note that the shuffling of palette colours will be different with each function call. Default: F
 #' @param pal.len The number of colours desired in the palette. If the number provided is NULl or is larger than the number of colours available, defaults to the maximum number of colours available. Default: NULL
 #' @param levels a character vector that provides an alternate way of specifying levels. Applicable only to character or factor data. If specified, the levels provided here will override those in the data argument. Default: NULL
@@ -27,6 +28,7 @@ colourScale = function(data,
                        div = F,
                        bin = F,
                        quantile = F,
+                       na.colour = "#808080",
                        n = 4,
                        reverse.pal = F,
                        shuffle.pal = F,
@@ -72,19 +74,31 @@ colourScale = function(data,
             pal = brewerland::discrete_colours[1:length(levs)]
         }
 
-        scalefun = scales::col_factor(domain = data, palette = pal, levels = levels, ordered = ordered)
+        scalefun = scales::col_factor(domain = data,
+                                      palette = pal,
+                                      levels = levels,
+                                      ordered = ordered,
+                                      na.color = na.colour)
     }
 
     else if (isTRUE(bin)) {
-        scalefun = scales::col_bin(domain = data, palette = pal, bins = n - 1)
+        scalefun = scales::col_bin(domain = data,
+                                   palette = pal,
+                                   bins = n - 1,
+                                   na.color = na.colour)
     }
 
     else if (isTRUE(quantile)) {
-        scalefun = scales::col_quantile(domain = data, palette = pal, n = n)
+        scalefun = scales::col_quantile(domain = data,
+                                        palette = pal,
+                                        n = n,
+                                        na.color = na.colour)
     }
 
     else {
-        scalefun = scales::col_numeric(domain = data, palette = pal)
+        scalefun = scales::col_numeric(domain = data,
+                                       palette = pal,
+                                       na.color = na.colour)
     }
 
     result = scalefun(data)

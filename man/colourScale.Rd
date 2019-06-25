@@ -5,8 +5,9 @@
 \title{Generate Colour Vectors of Any Length for Any Data Type}
 \usage{
 colourScale(data, pal = NULL, div = F, bin = F, quantile = F,
-  n = 4, reverse.pal = F, shuffle.pal = F, pal.len = NULL,
-  levels = NULL, ordered = F, squish = NULL, return.legend = F)
+  na.colour = "#808080", n = 4, reverse.pal = F, shuffle.pal = F,
+  pal.len = NULL, levels = NULL, ordered = F, squish = NULL,
+  return.legend = F)
 }
 \arguments{
 \item{data}{an atomic vector of type numeric, character or factor.}
@@ -18,6 +19,8 @@ colourScale(data, pal = NULL, div = F, bin = F, quantile = F,
 \item{bin}{a boolean value indicating whether the data should first be binned (equally-spaced groups) such that all data points within a range of values will share the same colour. Applicable only to numeric data. Default: F}
 
 \item{quantile}{a boolean value indicating whether the data should first be quantised (equally-sized groups) such that all data points within a group will share the same colour. Applicable only to numeric data.  Default: F}
+
+\item{na.colour}{The colour to return for ‘NA’ values. Note that ‘na.color = 'NA' is valid.}
 
 \item{n}{a numeric value indicating how many groups data points should be coloured according to. If bin = T, groups will be equally-spaced. If instead quantile = T, groups will be equally-sized. If n = 4, all points will be coloured accordingly by one of 4 colours. Default: 4}
 
