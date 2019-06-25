@@ -76,11 +76,11 @@ colourScale = function(data,
     }
 
     else if (isTRUE(bin)) {
-        scalefun = scales::col_bin(domain = data, palette = pal, bins = nbins)
+        scalefun = scales::col_bin(domain = data, palette = pal, bins = n - 1)
     }
 
     else if (isTRUE(quantile)) {
-        scalefun = scales::col_quantile(domain = data, palette = pal, n = nquant)
+        scalefun = scales::col_quantile(domain = data, palette = pal, n = n)
     }
 
     else {
